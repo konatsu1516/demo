@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>新規登録</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<!-- 名前とEmailの入力フォームを作成 -->
+<form th:object="${userForm}" th:action="@{/newuser}" th:method="post">
+  <table>
+    <tr>
+      <th>名前</th>
+      <td>
+        <!-- userFromのnameフィールドとの紐付け -->
+        <input type="text" th:field="*{name}">
+      </td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>
+        <!-- userFromのemailフィールドとの紐付け -->
+        <input type="text" th:field="*{email}">
+      </td>
+    </tr>
+  </table>
+  <input type="submit" value="登録">
+</form>
+<a th:href="@{/users}">ユーザー一覧へ</a>
+</body>
+</html>
